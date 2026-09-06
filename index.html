@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Ultra-Esp | Navegação Autônoma no Espaço Profundo</title>
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- JavaScript com atributo defer -->
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="main-header">
+        <div class="header-container">
+            <span class="logo">
+                <!-- Imagem do logotipo adicionada -->
+                <img id="logoTema" src="assets/logoTemaClaro.png" alt="Logo Ultra-Esp" class="logo-img">
+                Ultra-Esp
+            </span>
+            <nav class="nav-links">
+                <a href="#introducao">Sobre</a>
+                <a href="#dashboard">Simulação</a>
+                <a href="#tecnologia">Tecnologia</a>
+                <a href="#colaborador">Colaborar</a>
+            </nav>
+            <button id="btnTema" class="btn-tema" aria-label="Alternar tema visual">
+                <img id="imgTema" src="assets/astronautaTemaClaro.png" alt="Alternar Tema">
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- Introdução ao projeto -->
+        <section id="introducao" class="blocos-conteudo">
+            <div class="intro-grid">
+                <article class="intro-texto">
+                    <h2>Ir mais além com coragem</h2>
+                    <p>
+                        A exploração espacial apresenta-se como um caminho de oportunidades infinitas e descobertas riquíssimas para a humanidade 
+                        como um todo. No entanto, quando se trata de uma investigação mais desafiadora, que exige a ida de astronautas para regiões
+                        além da órbita terrestre baixa, como o espaço profundo e o ambiente cislunar, novas barreiras se impõem. Para este tipo de
+                        viagem, que levaria muito mais tempo do que qualquer outra iniciativa já levou, é imprescindível que a astronave possua um
+                        sistema de localização preciso, independente do meio terrestre e capaz de responder rápido a imprevistos. Desse modo, 
+                        garantindo a eficiência da missão e a segurança daqueles a bordo.
+                    </p>
+                    <p>
+                        Atualmente, os sistemas utilizados dependem fortemente de comunicação por rádio com redes de antenas na Terra para a 
+                        correção de trajetórias, além de Unidades de Medição Inercial (IMUs) que sofrem com o acúmulo de erros de posicionamento 
+                        ao longo do tempo — a chamada deriva. Adicionalmente, as tecnologias de navegação óptica convencionais limitam-se ao 
+                        rastreamento de grandes corpos celestes iluminados, mostrando-se ineficazes para detectar e desviar ativamente de detritos
+                        ou micrometeoroides escuros em rota de colisão rápida.
+                    </p>
+                    <p>
+                        O projeto <strong>Ultra-Esp</strong> propõe uma solução inovadora. Trata-se de um sistema autônomo baseado em 
+                        <strong>Inteligência Artificial de Borda</strong> (Edge AI) embarcado na nave para solucionar simultaneamente a deriva e 
+                        o desvio de obstáculos de maneira local e autônoma.
+                    </p>
+                    </article>
+                <!-- Coluna agrupando os blocos laterais (asides) -->
+                <div class="intro-sidebar">
+                    <!-- Primeiro aside (original) -->
+                    <aside class="intro-aside">
+                        <h3>Problemas para</h3>
+                        <ul>
+                            <li><mark>Deriva Inercial:</mark> Sensores acumulavam desvios severos de rota ao longo do trajeto.</li>
+                            <li><mark>Detritos:</mark> Risco constante de impactos que necessitam deuma resposta rápida e precisa.</li>
+                            <li><mark>Latência:</mark> Redução em 100% da dependência de telecomandos terrestres.</li>
+                        </ul>
+                    </aside>
+
+                    <!-- Segundo aside (novo) -->
+                    <aside class="intro-aside">
+                        <h3>Fases da Missão</h3>
+                        <ul>
+                            <li><strong>Fase I (Atual):</strong> Simulações do sistema de software e treinamento da Rede Neural Convolucional (CNN).
+                            </li>
+                            <li><strong>Fase II:</strong> Simulações de hardware e validação dos algoritmos em Terra.
+                            </li>
+                            <li><strong>Fase III:</strong> Testes em órbita baixa terrestre (LEO) acoplados a um cubesat de validação.</li>
+                            <li><strong>Fase IIII:</strong> Lançamento do demonstrador de navegação autônoma em trajetória trans-marte.</li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="blocos-conteudo">
+            <div class="blocos-titulo">
+                <div>
+                    <h2>Monitoramento Operacional</h2>
+                    <span class="sub-titulo">Simulação interativa do Ultra-Esp</span>
+                </div>
+            </div>
+
+            <!-- Indicadores com dados simulados -->
+            <div class="dashboard-grid">
+                <div class="card-metrica">
+                    <span class="metrica-label">Status do Sistema</span>
+                    <span id="statusSistema" class="metrica-valor status-ok">Operacional</span>
+                </div>
+                <div class="card-metrica">
+                    <span class="metrica-label">Deriva Inercial</span>
+                    <span id="valorDeriva" class="metrica-valor alert-color">1.482 arcsec</span>
+                </div>
+                <div class="card-metrica">
+                    <span class="metrica-label">Detritos Próximos</span>
+                    <span id="statusDetrito" class="metrica-valor">Nenhum Detectado</span>
+                </div>
+                <div class="card-metrica">
+                    <span class="metrica-label">Combustível Reservado</span>
+                    <span id="valorCombustivel" class="metrica-valor">94.2%</span>
+                </div>
+                <div class="card-metrica">
+                    <span class="metrica-label">Processador Central</span>
+                    <span class="metrica-valor">LEON4 (SPARC V8)</span>
+                </div>
+                <div class="card-metrica">
+                    <span class="metrica-label">Temp. Instrumentos</span>
+                    <span class="metrica-valor">4.2 K (Estável)</span>
+                </div>
+            </div>
+
+            <div class="dashboard-controles">
+                <p class="instrucao-painel">Interaja com os controles simulados para recalibrar a telemetria da espaçonave e realizar disvio de detritos:</p>
+                <div class="botoes-grupo">
+                    <button type="button" id="btnRecalibrar" class="botao-painel">Recalibrar Deriva</button>
+                    <button type="button" id="btnDesviar" class="botao-painel botao-alerta">Desviar de Obstáculo</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Funciona / Arquitetura Tecnológica -->
+        <section id="tecnologia" class="blocos-conteudo">
+            <div class="blocos-titulo">
+                <div>
+                    <h2>Arquitetura Híbrida de Controle</h2>
+                    <span class="sub-titulo">Duas camadas coordenadas para navegação inteligente</span>
+                </div>
+            </div>
+
+            <!-- Camada Macro -->
+            <article class="processo-bloco">
+                <div class="processo-conteudo">
+                    <h3>Camada macro: Astrometria por Visão Computacional</h3>
+                    <p>
+                        Para zerar a deriva inercial sem depender de radiotelescópios terrestres, o Ultra-Esp analisa a posição astronômica de quasares. Por estarem localizados a bilhões de anos-luz de distância, estes objetos celestes não apresentam movimento aparente na esfera celeste.
+                    </p>
+                    <p>
+                        Uma câmera CCD/CMOS de campo estreito registra o espectro e uma <strong>Rede Neural Convolucional (CNN)</strong> compacta identifica os quasares cadastrados no banco de dados, recalculando a orientação exata dos giroscópios em milissegundos.
+                    </p>
+                </div>
+                <figure class="processo-imagem-container">
+                    <!-- Estrutura de imagens sobrepostas -->
+                    <div class="processo-imagem-wrapper">
+                        <img src="assets/simulacaoQuasar1.png" alt="Simulação do rastreador óptico de quasares" class="processo-imagem foto-principal">
+                        <img src="assets/simulacaoQuasar2.png" alt="Simulação do rastreador óptico de quasares" class="processo-imagem foto-hover">
+                    </div>
+                    <figcaption>Fig 1. Simulação do rastreador óptico isolando assinatura espectral de quasar de referência.</figcaption>
+                </figure>
+            </article>
+
+            <!-- Camada Micro -->
+            <article class="processo-bloco reverso">
+                <div class="processo-conteudo">
+                    <h3>Camada micro: Desvio com base nos dados do Sensor LiDAR</h3>
+                    <p>
+                        Em caso de ameaças imediatas, como poeira espacial ou micrometeoroides, o sistema ativa uma varredura a laser ativa com sensores <strong>LiDAR de Estado Sólido</strong> (sem partes mecânicas móveis, imunes às variações térmicas severas do vácuo).
+                    </p>
+                    <p>
+                        A trajetória de desvio com o menor consumo possível de propelente é calculada em tempo real por um modelo treinado por <strong>Aprendizado por Reforço</strong>, direcionando pulsos de escape para manter a estabilidade estrutural da nave.
+                    </p>
+                </div>
+                <figure class="processo-imagem-container">
+                    <!-- Estrutura de imagens sobrepostas -->
+                    <div class="processo-imagem-wrapper">
+                        <img src="assets/simulacaoLidar1.png" alt="Simulação desvio sensor LiDAR" class="processo-imagem foto-principal">
+                        <img src="assets/simulacaoLidar2.png" alt="Simulação desvio sensor LiDAR" class="processo-imagem foto-hover">
+                    </div>
+                    <figcaption>Fig 2. Simulação da  identificação do corpo estranho (detrito) utilizando o sensor.</figcaption>
+                </figure>
+            </article>
+
+        </section>
+
+        <!-- Formulário -->
+        <section id="colaborador" class="blocos-conteudo">
+            <div class="blocos-titulo">
+                <div>
+                    <h2>Quer fazer parte desse projeto?</h2>
+                    <span class="sub-titulo">Apoie o avanço da tecnologia aeroespacial</span>
+                </div>
+            </div>
+            
+            <p class="formulario-desc">
+                Se você representa uma instituição de pesquisa, empresa de tecnologia ou agência espacial interessada no desenvolvimento e aplicação aeroespacial dos algoritmos do projeto Ultra-Esp, cadastre-se no formulário abaixo e entre em contato conosco.
+            </p>
+
+            <form id="formulario-colaborador" class="formulario">
+                
+                <div class="bloco-input">
+                    <label for="nome">Nome do Representante ou Organização</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: Agência Espacial Brasileira ou seu nome" required>
+                </div>
+
+                <div class="bloco-input">
+                    <label for="email">E-mail Corporativo</label>
+                    <input type="email" id="email" name="email" placeholder="nome@organizacao.org" required>
+                </div>
+
+                <div class="bloco-input">
+                    <label for="perfil">Perfil do Interessado</label>
+                    <select id="perfil" name="perfil" required>
+                        <option value="" disabled selected>Selecione uma categoria...</option>
+                        <option value="pesquisa">Instituição de Ensino / Pesquisa Científica</option>
+                        <option value="corporativo">Indústria Privada ou Startup Aeroespacial</option>
+                        <option value="governo">Agência Governamental ou Financiador Público</option>
+                        <option value="independente">Entusiasta ou Investidor Independente</option>
+                    </select>
+                </div>
+
+                <div class="bloco-input">
+                    <label for="recurso">Recurso Principal de Interesse</label>
+                    <select id="recurso" name="recurso" required>
+                        <option value="" disabled selected>Selecione a tecnologia...</option>
+                        <option value="astrometria">Calibração de Quasares por CNN (Macro)</option>
+                        <option value="lidar">Evitação de Obstáculos por LiDAR / Reinforcement Learning (Micro)</option>
+                        <option value="hardware">Embarque em Hardware Tolerante a Radiação (LEON4)</option>
+                        <option value="completo">Parceria Geral no Ecossistema da Missão Ultra-Esp</option>
+                    </select>
+                </div>
+
+                <div class="bloco-input full">
+                    <p class="label-fake">Como gostaria de colaborar com o projeto?</p>
+                    <div class="opcoes-radio">
+                        <label class="radio-label">
+                            <input type="radio" name="tipoColaboracao" value="financeiro" checked>
+                            <span>Financiamento direto de recursos (Capital)</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="tipoColaboracao" value="tecnologico">
+                            <span>Parceria para fornecimento de Hardware</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="tipoColaboracao" value="academico">
+                            <span>Pesquisa e desenvolvimento científico conjunto</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bloco-input full">
+                    <label for="proposta">Detalhes da colaboração</label>
+                    <textarea id="proposta" name="proposta" rows="4" placeholder="Descreva brevemente o escopo do interesse de sua organização e/ou recursos que gostaria de integrar ao projetos Ultra-Esp..." required></textarea>
+                </div>
+
+                <div class="bloco-input full termos-checkbox">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="termos" name="termos" required>
+                        <span>Declaro que li e estou de acordo com as Políticas de Privacidade</span>
+                    </label>
+                </div>
+
+                <div class="formulario-footer">
+                    <button type="submit" class="botao-finalizar">ENVIAR</button>
+                </div>
+            </form>
+
+            <!-- Resposta pós preenchimento válido -->
+            <div id="mensagemSucesso" class="mensagem-sucesso oculto">
+                <h3>Agradecemos pelo seu interesse!</h3>
+                <p>Nossa tripulação recebeu suas informações. Atualizações sobre o projeto serão enviadas através do endereço de e-mail cadastrado.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé-->
+    <footer class="page-footer">
+        <p>&copy; 2026 Projeto Aeroespacial Ultra-Esp - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
