@@ -26,7 +26,6 @@ Os seguintes requisitos foram exigidos e avaliados no desenvolvimento desta apli
 *   **Restrições:** Utilização exclusiva de conteúdos abordados até a Aula 12 e proibição de frameworks externos.
 
 ### Organização de arquivos
-Estrutura básica do projeto entregue:
 
 ```text
 GS1-fiap-da/   
@@ -38,7 +37,7 @@ GS1-fiap-da/
 
 ---
 
-## Detalhes das Atividades
+## Detalhes da Atividade
 
 ### Global Solution - 1º Semestre (GS1)
 
