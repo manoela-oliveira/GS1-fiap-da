@@ -46,4 +46,8 @@ GS1-fiap-da/
 Desenvolver uma plataforma web interativa, moderna, organizada e responsiva para o monitoramento de uma missão espacial fictícia. A solução deve conectar tecnologias computacionais a problemas reais da indústria espacial, permitindo o acompanhamento operacional e a interação do usuário com dados simulados, aplicando estritamente os conceitos lecionados na disciplina até a Aula 12.
 
 **Demonstração da Entrega:**
+<p>
+<img width="1896" height="1027" alt="Image" src="https://github.com/user-attachments/assets/d252c1bc-fe17-42ca-8b90-8cc2259ffe6f" />
+
+https://github.com/user-attachments/assets/a10aaac6-3631-41ce-949e-fad8b391316d
 
